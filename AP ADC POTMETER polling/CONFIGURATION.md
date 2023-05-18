@@ -25,8 +25,8 @@ The following settings are incorporated in the \*.ioc file for this project.
   - RESOLVE CLOCK ISSUES
 
 The following code (see main.c) will redirect printf() statements to the VCP.
-int \_write(int file, char _ptr, int len)
-{
-CDC_Transmit_FS((uint8_t _)ptr, len);
-return len;
+int \_write(int file, char _ptr, int len)  
+{  
+ CDC_Transmit_FS((uint8_t _)ptr, len);  
+ return len;  
 }
