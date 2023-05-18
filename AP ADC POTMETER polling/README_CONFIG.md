@@ -1,10 +1,10 @@
 #Configuration
 
 • In this example  
-o There is no onboard ST-Link V2  
-o There is no onboard USB to Serial port  
-o There is a USB connector, connected between the STM32 and a computer  
-o Use a serial console application to read the result (for example PuTTY, TerraTerm, Arduino IDE).  
+  o There is no onboard ST-Link V2  
+  o There is no onboard USB to Serial port  
+  o There is a USB connector, connected between the STM32 and a computer  
+  o Use a serial console application to read the result (for example PuTTY, TerraTerm, Arduino IDE).  
 • PINOUT & CONFIGURATION  
 o CONNECTIVITY  
 • USB  
