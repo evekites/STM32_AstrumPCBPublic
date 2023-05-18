@@ -10,9 +10,9 @@ The following settings are incorporated in the \*.ioc file for this project.
     - ADC1
       - IN2: IN2 SINGLE-ENDED
 
-### This last part is to enable the Virtual Com Port on the USB-C connector (VCP).
+### The following part of the configuration is to enable the Virtual Com Port on the USB-C connector (VCP).
 
-- Output will be sent to the USB-C Virtual Com Port (VCP)
+- Output from printf() will be sent to the USB-C Virtual Com Port (VCP)
 - Use a serial console application to read the result 115.200, 8, none, 1
 - PINOUT & CONFIGURATION
   - CONNECTIVITY
@@ -24,9 +24,11 @@ The following settings are incorporated in the \*.ioc file for this project.
 - CLOCK CONFIGURATION
   - RESOLVE CLOCK ISSUES
 
-The following code (see main.c) will redirect printf() statements to the VCP.
-int \_write(int file, char _ptr, int len)  
-{  
- CDC_Transmit_FS((uint8_t _)ptr, len);  
- return len;  
+The following code (see main.c) will redirect printf() statements to the VCP: 
+```
+int \_write(int file, char _ptr, int len)
+{
+ CDC_Transmit_FS((uint8_t _)ptr, len);
+ return len;
 }
+```
