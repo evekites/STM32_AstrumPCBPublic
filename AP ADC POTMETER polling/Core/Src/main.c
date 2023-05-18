@@ -16,7 +16,7 @@ while (1)
   readValue = HAL_ADC_GetValue(&hadc1);
   HAL_ADC_Stop(&hadc1);
   printf("Potmeter value: %d\r\n", readValue);
-  if (readValue < 847)
+  if (readValue < 850)
   {
     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
   }
