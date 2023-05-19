@@ -5,7 +5,7 @@
 - PINOUT & CONFIGURATION
   - Set PB10 to I2C3-SCL
   - Set PB11 to I2C3-SDA
-  - Set PC13 to GPIO_OUTPUT, user label: LED_RED
+  - Set PC13 to GPIO_OUTPUT, userlabel to LED_RED
   - CONNECTIVITY
     - I2C3
       - I2C

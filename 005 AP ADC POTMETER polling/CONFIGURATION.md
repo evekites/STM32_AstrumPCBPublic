@@ -1,9 +1,8 @@
 # Configuration
 
 - PINOUT & CONFIGURATION
-  - CONNECTIVITY
-    - Set PC1 to ADC1_IN2, userlabel to POTMETER
-    - Set PC13 to GPIO_OUTPUT, userlabel to LED_RED
+  - Set PC1 to ADC1_IN2, userlabel to POTMETER
+  - Set PC13 to GPIO_OUTPUT, userlabel to LED_RED
   - ANALOG
     - ADC1
       - IN2: IN2 SINGLE-ENDED
