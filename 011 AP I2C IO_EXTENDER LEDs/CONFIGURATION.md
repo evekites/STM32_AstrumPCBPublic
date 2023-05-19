@@ -10,8 +10,9 @@
       - I2C
 
 ### The following part of the configuration is to enable the Virtual Com Port on the USB-C connector (VCP).
+The only output in this project is generated when there is an I2C error.
 
-- Output from printf() will be sent to the USB-C Virtual Com Port (VCP)
+- Output from printf() will be sent to the USB-C Virtual Com Port (VCP).
 - Use a serial console application to read the result 115.200, 8, none, 1
 - PINOUT & CONFIGURATION
   - CONNECTIVITY
