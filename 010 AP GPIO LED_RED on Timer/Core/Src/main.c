@@ -1,3 +1,7 @@
+/* USER CODE BEGIN 2 */
+HAL_TIM_Base_Start_IT(&htim16);
+/* USER CODE END 2 */
+
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
