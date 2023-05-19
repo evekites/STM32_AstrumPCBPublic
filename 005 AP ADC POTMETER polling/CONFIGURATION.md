@@ -1,11 +1,9 @@
 # Configuration
 
-The following settings are incorporated in the \*.ioc file for this project.
-
 - PINOUT & CONFIGURATION
   - CONNECTIVITY
-    - PC1 is set to ADC1_IN2, user label: POTMETER
-    - PC13 is set to GPIO_OUTPUT, user label: LED_RED
+    - Set PC1 to ADC1_IN2, userlabel to POTMETER
+    - Set PC13 to GPIO_OUTPUT, userlabel to LED_RED
   - ANALOG
     - ADC1
       - IN2: IN2 SINGLE-ENDED
@@ -24,7 +22,8 @@ The following settings are incorporated in the \*.ioc file for this project.
 - CLOCK CONFIGURATION
   - RESOLVE CLOCK ISSUES
 
-The following code (see main.c) will redirect printf() statements to the VCP: 
+The following code (see main.c) will redirect printf() statements to the VCP:
+
 ```
 int \_write(int file, char _ptr, int len)
 {
