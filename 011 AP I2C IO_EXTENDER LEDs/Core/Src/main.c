@@ -1,3 +1,9 @@
+/* USER CODE BEGIN Includes */
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+/* USER CODE END Includes */
+
 /* USER CODE BEGIN 0 */
 int _write(int file, char *ptr, int len)
 {
@@ -135,7 +141,7 @@ void LED_Toggle(int iRegisterValue, int iMask)
 LEDs_Off();
 
 int LEDs[6] =
-	{M_LED_RED, M_LED_GREEN, M_LED_BLUE, LED_BLUE};
+	{M_LED_RED, M_LED_GREEN, M_LED_BLUE, LED_BLUE, GPIO2A, GPIO2B};
 
 while (1)
 {
@@ -147,7 +153,7 @@ while (1)
 	}
 	int DELAY = 200;
 
-	for (int LEDnr = 0; LEDnr < 4; LEDnr++)
+	for (int LEDnr = 0; LEDnr < 6; LEDnr++)
 	{
 		LED_On(buf[0], LEDs[LEDnr]);
 		HAL_Delay(DELAY);
