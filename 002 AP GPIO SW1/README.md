@@ -1,6 +1,6 @@
 # Project description
 
-This project blinks LED_RED and uses the following user coded functions:
+This project turns on LED_RED, at the moment SW1 is pressed and uses the following user coded functions:
 
 - SW1_status() to check if SW1 is pressed down
 - LED_RED_on() to turn LED_RED on
