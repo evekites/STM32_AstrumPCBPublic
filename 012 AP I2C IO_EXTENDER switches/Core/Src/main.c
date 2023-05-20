@@ -16,6 +16,7 @@ int _write(int file, char *ptr, int len)
 	return len;
 }
 /* USER CODE END 0 */
+
 /* USER CODE BEGIN 1 */
 HAL_StatusTypeDef ret;
 uint8_t buf[1];
