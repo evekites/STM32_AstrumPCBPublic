@@ -78,6 +78,10 @@ uint8_t DHT11_Read(void)
 }
 /* USER CODE END 0 */
 
+  /* USER CODE BEGIN 2 */
+	HAL_TIM_Base_Start(&htim1);
+  /* USER CODE END 2 */
+
 /* USER CODE BEGIN WHILE */
 while (1)
 {
