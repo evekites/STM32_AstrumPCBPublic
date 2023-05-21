@@ -2,7 +2,9 @@
 
 With this project you can check if a switch connect to the ports below was pressed.
 You can specify which switch you want to check (there is a physical problem with SW2 at this moment).
-Pressing the specified switch, the 4 lights LED_RED_M, LED_GREEN_M, LED_BLUE_M and LED_BLUE will loop as long as the switch is pressed. At the same time at the VCP you'll see the status of all 8 ports on the IO_Extender.
+Pressing the specified switch, the 4 lights LED_RED_M, LED_GREEN_M, LED_BLUE_M and LED_BLUE will loop as long as the switch is pressed.
+
+At the same time the status of all 8 ports on the IO_Extender (LED's an switches) will be show on the VCP.
 
 0 SW2
 1 LED_RED_M
