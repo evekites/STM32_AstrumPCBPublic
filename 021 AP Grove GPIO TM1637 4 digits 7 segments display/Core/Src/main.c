@@ -1,3 +1,7 @@
+/* USER CODE BEGIN Includes */
+#include "tm1637.h"
+/* USER CODE END Includes */
+
 /* USER CODE BEGIN 0 */
 volatile uint8_t displayColon = 0;
 /* USER CODE END 0 */
