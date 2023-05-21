@@ -1,3 +1,3 @@
 # Project description
 
-This project checks the temperature at the BMP280 and prints its value to the VCP port. If the value is above 27 degrees Celsius, LED_RED will be turned on, otherwise LED_RED will be turned off.
+This project shows some text on a Grove OLED 128x64 display.
