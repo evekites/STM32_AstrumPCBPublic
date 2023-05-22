@@ -1,33 +1,27 @@
-/* USER CODE BEGIN 2 */
-#define TIME_ON 1000
-#define TIME_OFF 500
-void LED_on()
-{
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-}
-
-void LED_RED_off()
-{
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-}
-
-void LED_RED_set(GPIO_PinState LED_Status)
-{
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, LED_Status);
-}
-/* USER CODE END 2 */
-
 /* USER CODE BEGIN WHILE */
 while (1)
 {
-  LED_RED_on();
-  HAL_Delay(TIME_ON);
-  LED_RED_off();
-  HAL_Delay(TIME_OFF);
-  LED_RED_set(GPIO_PIN_SET);
-  HAL_Delay(TIME_ON);
-  LED_RED_set(GPIO_PIN_RESET);
-  HAL_Delay(TIME_OFF);
+  const ledOn = 400;
+  const ledOff = 100;
+  HAL_GPIO_TogglePin(GPIO1A_GPIO_Port, GPIO1A_Pin);
+  HAL_Delay(ledOn);
+  HAL_GPIO_TogglePin(GPIO1A_GPIO_Port, GPIO1A_Pin);
+  HAL_Delay(ledOff);
+
+  HAL_GPIO_TogglePin(GPIO1B_GPIO_Port, GPIO1B_Pin);
+  HAL_Delay(ledOn);
+  HAL_GPIO_TogglePin(GPIO1B_GPIO_Port, GPIO1B_Pin);
+  HAL_Delay(ledOff);
+
+  HAL_GPIO_TogglePin(GPIO3A_GPIO_Port, GPIO3A_Pin);
+  HAL_Delay(ledOn);
+  HAL_GPIO_TogglePin(GPIO3A_GPIO_Port, GPIO3A_Pin);
+  HAL_Delay(ledOff);
+
+  HAL_GPIO_TogglePin(GPIO3B_GPIO_Port, GPIO3B_Pin);
+  HAL_Delay(ledOn);
+  HAL_GPIO_TogglePin(GPIO3B_GPIO_Port, GPIO3B_Pin);
+  HAL_Delay(ledOff);
 
   /* USER CODE END WHILE */
 

@@ -1,7 +1,7 @@
 # Configuration
 
-Connect a Grove LED to GPIO1 to test GPIO1A (GPIO1B can only be tested with a cross cable ie a Grove cable with white an yellow crossed)
-Connect a Grove LED to GPIO3 to test GPIO3A (GPIO3B can only be tested with a cross cable ie a Grove cable with white an yellow crossed)
+Connect a Grove LED to GPIO1 to test GPIO1A (GPIO1B can only be tested with a DIY Grove cable with white an yellow crossed, leaving red and black as is)
+Connect a Grove LED to GPIO3 to test GPIO3A (GPIO3B can only be tested with a DIY Grove cable with white an yellow crossed, leaving red and black as is)
 
 - PINOUT & CONFIGURATION
   - Set PB0 to GPIO_OUTPUT, userlabel to GPIO1A
