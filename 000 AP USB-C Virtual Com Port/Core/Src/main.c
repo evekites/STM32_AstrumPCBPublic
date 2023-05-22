@@ -9,7 +9,7 @@ int _write(int file, char *ptr, int len)
 /* USER CODE BEGIN WHILE */
 while (1)
 {
-  for (int iCounter; iCounter < 1000; iCounter++)
+  for (int iCounter = 0; iCounter < 1000; iCounter++)
   {
     printf("Counter: %d\r\n", iCounter);
     HAL_Delay(100);
