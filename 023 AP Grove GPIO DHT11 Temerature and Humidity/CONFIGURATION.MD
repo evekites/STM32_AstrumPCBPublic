@@ -2,10 +2,13 @@
 
 - A Grove Temperature and Humidity sensor is connected to GPIO01
 - PINOUT & CONFIGURATION
-  - Set PB0 to GPIO_OUTPUT
-  - SYSTEM CORE
-    - GPIO
-      - PB0, MAXIMUM OUTPUT SPEED: HIGH
+  - Set PB0 to GPIO_OUTPUT, userlabel to DHT11
+  - TIMERS
+    - TIM1
+      - CLOCK SOURCE: INTERNAL CLOCK
+      - PARAMETER SETTINGS
+        - PRESCALAR: 63
+        - COUNTER PERIOD (ARR): 65535
 
 ### The followin settings are needed to printf() floating point values
 
