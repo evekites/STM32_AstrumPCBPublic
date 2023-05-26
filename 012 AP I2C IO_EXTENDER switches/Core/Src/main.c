@@ -19,7 +19,7 @@ int _write(int file, char *ptr, int len)
 
 /* USER CODE BEGIN 1 */
 HAL_StatusTypeDef ret;
-uint8_t buf[1];
+uint8_t I2CRegistervalues[1];
 /* USER CODE END 1 */
 
 /* USER CODE BEGIN WHILE */
@@ -45,97 +45,100 @@ static const uint8_t IO_EXT_WRITE = IO_EXT_READ + 1; // 1 higher then IO_EXT_REA
 		((byte)&0x02 ? '1' : '0'), \
 		((byte)&0x01 ? '1' : '0')
 
+void LED_Off(int iMask)
+{
+	bool highON = true;
+	// The M_LEDs are OFF when high, so highON = false
+	if (iMask == M_LED_RED || iMask == M_LED_GREEN || iMask == M_LED_BLUE)
+		highON = false;
+	if (highON)
+	{
+		I2CRegistervalues[0] = I2CRegistervalues[0] & ~iMask;
+	}
+	else // For the M_LEDs the logic is reversed, so ON when LOW en OFF when HIGH
+	{
+		I2CRegistervalues[0] = I2CRegistervalues[0] | iMask;
+	}
+	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, I2CRegistervalues, 1,
+								  HAL_MAX_DELAY); // Write I2CRegistervalues[0] to IO Extender
+	if (ret != HAL_OK)
+	{
+		printf("I2C error\r\n");
+	}
+}
+
+void LED_On(int iMask)
+{
+	bool highON = true;
+	// The M_LEDs are OFF when high, so highON = false
+	if (iMask == M_LED_RED || iMask == M_LED_GREEN || iMask == M_LED_BLUE)
+		highON = false;
+	if (highON)
+	{
+		I2CRegistervalues[0] = I2CRegistervalues[0] | iMask;
+	}
+	else // For the M_LEDs the logic is reversed, so ON when LOW en OFF when HIGH
+	{
+		I2CRegistervalues[0] = I2CRegistervalues[0] & ~iMask;
+	}
+	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, I2CRegistervalues, 1,
+								  HAL_MAX_DELAY); // Write buf[0] to IO Extender
+	if (ret != HAL_OK)
+	{
+		printf("I2C error\r\n");
+	}
+}
+
 bool CheckPin(int iMask)
 {
-	ret = HAL_I2C_Master_Receive(&hi2c1, IO_EXT_READ, buf, 1,
+	ret = HAL_I2C_Master_Receive(&hi2c1, IO_EXT_READ, I2CRegistervalues, 1,
 								 HAL_MAX_DELAY); // Retreive data from IO_Extender into buf[0]
 	if (ret != HAL_OK)
 	{
 		printf("I2C error\r\n");
 	}
-	printf("Buffer " BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(buf[0]));
+	printf("Buffer " BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(I2CRegistervalues[0]));
 	printf(" mask " BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(iMask));
 	printf(" ");
-	if ((buf[0] & iMask) == iMask)
+
+	if ((I2CRegistervalues[0] & iMask) == iMask)
 	{
+		LED_On(SW2); // SW2 blijft plakken, dus hiermee wordt SW2 gereset.
 		return true;
 	}
 	else
 	{
+		LED_On(SW2); // SW2 blijft plakken, dus hiermee wordt SW2 gereset.
 		return false;
-	}
-}
-
-void LED_Off(int iRegisterValue, int iMask)
-{
-	bool highON = true;
-	// The M_LEDs are OFF when high, so highON = false
-	if (iMask == M_LED_RED || iMask == M_LED_GREEN || iMask == M_LED_BLUE)
-		highON = false;
-	if (highON)
-	{
-		buf[0] = iRegisterValue & ~iMask;
-	}
-	else // For the M_LEDs the logic is reversed, so ON when LOW en OFF when HIGH
-	{
-		buf[0] = iRegisterValue | iMask;
-	}
-	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, buf, 1,
-								  HAL_MAX_DELAY); // Write buf[0] to IO Extender
-	if (ret != HAL_OK)
-	{
-		printf("I2C error\r\n");
-	}
-}
-
-void LED_On(int iRegisterValue, int iMask)
-{
-	bool highON = true;
-	// The M_LEDs are OFF when high, so highON = false
-	if (iMask == M_LED_RED || iMask == M_LED_GREEN || iMask == M_LED_BLUE)
-		highON = false;
-	if (highON)
-	{
-		buf[0] = iRegisterValue | iMask;
-	}
-	else // For the M_LEDs the logic is reversed, so ON when LOW en OFF when HIGH
-	{
-		buf[0] = iRegisterValue & ~iMask;
-	}
-	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, buf, 1,
-								  HAL_MAX_DELAY); // Write buf[0] to IO Extender
-	if (ret != HAL_OK)
-	{
-		printf("I2C error\r\n");
 	}
 }
 
 void LEDs_On()
 {
-	LED_On(buf[0], M_LED_RED);
-	LED_On(buf[0], M_LED_GREEN);
-	LED_On(buf[0], M_LED_BLUE);
-	LED_On(buf[0], LED_BLUE);
-	LED_On(buf[0], GPIO2A);
-	LED_On(buf[0], GPIO2B);
-	LED_On(buf[0], J1100_1);
+	LED_On(M_LED_RED);
+	LED_On(M_LED_GREEN);
+	LED_On(M_LED_BLUE);
+	LED_On(LED_BLUE);
+	LED_On(GPIO2A);
+	LED_On(GPIO2B);
+	LED_On(J1100_1);
 }
 
 void LEDs_Off()
 {
-	LED_Off(buf[0], M_LED_RED);
-	LED_Off(buf[0], M_LED_GREEN);
-	LED_Off(buf[0], M_LED_BLUE);
-	LED_Off(buf[0], LED_BLUE);
-	LED_Off(buf[0], GPIO2A);
-	LED_Off(buf[0], GPIO2B);
-	LED_Off(buf[0], J1100_1);
+	LED_Off(M_LED_RED);
+	LED_Off(M_LED_GREEN);
+	LED_Off(M_LED_BLUE);
+	LED_Off(LED_BLUE);
+	LED_Off(GPIO2A);
+	LED_Off(GPIO2B);
+	LED_Off(J1100_1);
 }
 
-void LED_Toggle(int iRegisterValue, int iMask)
+void LED_Toggle(int iMask)
 {
-	buf[0] = iRegisterValue ^ iMask;
-	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, buf, 1,
+	I2CRegistervalues[0] = I2CRegistervalues[0] ^ iMask;
+	ret = HAL_I2C_Master_Transmit(&hi2c1, IO_EXT_WRITE, I2CRegistervalues, 1,
 								  HAL_MAX_DELAY);
 	if (ret != HAL_OK)
 	{
@@ -145,12 +148,11 @@ void LED_Toggle(int iRegisterValue, int iMask)
 
 LEDs_Off();
 int LEDnr = 0;
-int LEDs[8] =
-	{M_LED_RED, M_LED_GREEN, M_LED_BLUE, LED_BLUE}; // enough room to use LED's on GPIO2A, GPIO2B & J1100_1
+int LEDs[8] = {M_LED_RED, M_LED_GREEN, M_LED_BLUE, LED_BLUE}; // enough room use LED's on GPIO2A, GPIO2B & J1100_1
 
 while (1)
 {
-#define SWITCH GPIO2A
+#define SWITCH SW2
 #if SWITCH == SW2
 	if (!CheckPin(SW2))
 #elif SWITCH == GPIO2A
@@ -165,7 +167,7 @@ while (1)
 		if (LEDnr >= 4)
 			LEDnr = 0;
 		printf("HIGH\r\n");
-		LED_Toggle(buf[0], LEDs[LEDnr]);
+		LED_Toggle(LEDs[LEDnr]);
 		HAL_Delay(200);
 
 		// LEDs_On();

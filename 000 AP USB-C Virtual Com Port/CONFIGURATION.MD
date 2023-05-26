@@ -17,9 +17,11 @@
 The following code (see main.c) will redirect printf() statements to the VCP:
 
 ```
-int \_write(int file, char _ptr, int len)
+/* USER CODE BEGIN 0 */
+int _write(int file, char *ptr, int len)
 {
- CDC_Transmit_FS((uint8_t _)ptr, len);
- return len;
+	CDC_Transmit_FS((uint8_t *)ptr, len);
+	return len;
 }
+/* USER CODE END 0 */
 ```
