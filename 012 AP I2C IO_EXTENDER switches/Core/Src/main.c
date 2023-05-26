@@ -45,27 +45,6 @@ static const uint8_t IO_EXT_WRITE = IO_EXT_READ + 1; // 1 higher then IO_EXT_REA
 		((byte)&0x02 ? '1' : '0'), \
 		((byte)&0x01 ? '1' : '0')
 
-bool CheckPin(int iMask)
-{
-	ret = HAL_I2C_Master_Receive(&hi2c1, IO_EXT_READ, buf, 1,
-								 HAL_MAX_DELAY); // Retreive data from IO_Extender into buf[0]
-	if (ret != HAL_OK)
-	{
-		printf("I2C error\r\n");
-	}
-	printf("Buffer " BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(buf[0]));
-	printf(" mask " BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(iMask));
-	printf(" ");
-	if ((buf[0] & iMask) == iMask)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 void LED_Off(int iRegisterValue, int iMask)
 {
 	bool highON = true;
@@ -107,6 +86,23 @@ void LED_On(int iRegisterValue, int iMask)
 	if (ret != HAL_OK)
 	{
 		printf("I2C error\r\n");
+	}
+}
+
+bool CheckPin(int iMask) {
+	ret = HAL_I2C_Master_Receive(&hi2c1, IO_EXT_READ, buf, 1,
+	HAL_MAX_DELAY); //Retreive data from IO_Extender into buf[0]
+	if (ret != HAL_OK) {
+		printf("I2C error\r\n");
+	}
+	printf("Buffer "BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(buf[0]));
+	printf(" mask "BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(iMask));
+	printf(" ");
+	LED_On(buf[0], SW2); //SW2 blijft plakken, dus hiermee wordt SW2 gereset.
+	if ((buf[0] & iMask) == iMask) {
+		return true;
+	} else {
+		return false;
 	}
 }
 
