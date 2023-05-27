@@ -16,6 +16,6 @@ Beware, don't use an FTDI USB <=> Serial port dongle as is used with Arduino pro
       - MODE: ASYNCHRONOUS
       - PARAMETER SETTINGS
         - BAUD RATE: 115200;
-        - WORD LENGTH: 8 BITS
+        - WORD LENGTH: 8 BITS (INCLUDING PARITY)
         - PARITY: NO
         - STOP BITS: 1
