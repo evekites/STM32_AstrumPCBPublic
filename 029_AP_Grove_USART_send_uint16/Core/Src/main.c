@@ -1,3 +1,4 @@
+/* USER CODE BEGIN WHILE */
 uint16_t iTeller = 240;
 while (1)
 {
