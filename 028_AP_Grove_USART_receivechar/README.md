@@ -1,14 +1,38 @@
 # Project description
 
-This project waits 6 seconds to receive a character. It then prints a counter, the received character and the corresponding ASCII value both in decimal and in hex.
+This project waits 6 seconds to receive a character from a transmitter. It then prints a counter, the received character and the corresponding ASCII value both in decimal and in hex.
 
-usart_send.py => PC:COMx => RS232-USB Dongle => Grove to RS232 Sub-D connector  
-=> Astrum PCB:USART => USB-C VCP => COMy => Serial Console PC
+## Two different setups possible
+
+- Astrum PCB as transmitter
+- PC (python script) as transmitter
+
+### Astrum PCB as transmitter
+
+- Transmitter: Astrum PCB1
+  - 025_AP_Grove_USART_sendchar
+- Receiver: Astrum PCB2
+  - 028_AP_Grove_USART_receivechar
+  - Use a Grove cross cable (cross white and yellow, cut the red wire and leave the black wire as is) between the USART ports of the transmitter and the receiver
+  - Use a USB-C <=> USB-A cable to connect the receiver with a computer
+  - Open a Serial console application to see the received data.
+
+Transmitter:USART => Grove cross cable => Receiver:USART => USB-C-USB-A VCP => PC:USB (COMy-port) => PC:Serial Console
+
+COMy is the COM-port on the USB-C VCP and is used by the Serial Consol application to show the reveived data
+
+### PC (python script) as transmitter
+
+- Transmitter: PC
+  - 027_usart_send.py
+
+Transmitter 027_usart_send.py => PC:COMx => RS232-USB Dongle => Grove to RS232 Sub-D connector  
+=> Receiver:USART => USB-C VCP => PC:USB (COMx-port) => PC:Serial Console
 
 COMx is the COM-port on the RS232-USB dongle and is used by the Python script to send characters  
 COMy is the COM-port on the USB-C VCP and is used by the Serial Consol application to show the reveived data
 
-### Sample output:
+## Sample output:
 
 Char26: T ASCII value: 84 0x54  
 Char27: O ASCII value: 79 0x4f  
