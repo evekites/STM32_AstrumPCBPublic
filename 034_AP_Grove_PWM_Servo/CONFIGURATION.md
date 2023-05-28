@@ -1,0 +1,16 @@
+# Configuration
+
+- In this example
+  - A Grove Servo is connected to GPIO3
+- PINOUT & CONFIGURATION
+  - Set PA10 to TIM1_CH3
+  - TIMERS
+    - TIM1
+      - CLOCK SOURCE: INTERNAL CLOCK
+      - CHANNEL 3: PWM GENERATION CH3
+      - PARAMETER SETTINGS:
+        - PRESCALAR: 899
+        - COUNTER PERIOD (AUTO RELOAD REGISTER): 99900
+  - CLOCK CONFIGURATION
+    - APB1 TIMER CLOCKS: 45
+    - APB2 TIMER CLOCKS: 45
