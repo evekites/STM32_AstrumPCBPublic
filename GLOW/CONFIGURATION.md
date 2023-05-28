@@ -1,0 +1,29 @@
+# Configuration
+
+- PINOUT & CONFIGURATION
+
+  - Set PB5 to GPIO_OUTPUT
+  - Set PB4 to I2C3_SDA
+  - Set PA6 to I2C3_SCL
+  - Set PB3 to TIM2_CH2
+  - Set PE4 to GPIO_OUTPUT
+  - Set PB1 to GPIO_EXTI1, set userlabel to IMU_INT2
+  - Set PBO to GPIO_EXTI0, set userlabel to IMU_INT1
+  - Set PA5 to GPIO_OUTPUT
+  - Set PA6 to GPIO_INPUT
+  - Set PA2 to GPIO_OUTPUT
+  - Set PA3 to GPIO_OUTPUT
+  - TIMERS
+    - TIM2
+      - CLOCK SOURCE: INTERNAL CLOCK
+      - CHANNEL 2: PWM GENERATION CH2
+      - PARAMETER SETTINGS:
+        - PRESCALER: 0
+        - COUNTER PERIOD (AUTO RELOAD REGISTER): 3
+        - AUTO-RELOAD PRELOAD: ENABLE
+  - CONNECTIVITY
+    - I2C3
+      - I2C
+  - CLOCK CONFIGURATION
+    - APB1 TIMER CLOCKS: 32
+    - APB2 TIMER CLOCKS: 32
