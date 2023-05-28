@@ -5,7 +5,7 @@ while (1)
   int iStand = 20;
   htim1.Instance->CCR3 = iStand; // duty cycle is .5 ms
   HAL_Delay(2000);
-  iStand = 73;
+  iStand = 50;
   htim1.Instance->CCR3 = iStand; // duty cycle is 1.5 ms
   HAL_Delay(2000);
   iStand = 125;
