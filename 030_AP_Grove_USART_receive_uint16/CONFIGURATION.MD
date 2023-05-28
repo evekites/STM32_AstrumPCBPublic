@@ -1,29 +1,3 @@
-# Test-setup
-
-Their are 2 diffetent test-setups for this project:
-
-- Test-setup with 2 Astrum PCB's
-- Test-setup with 1 Astrum PCB and a PC
-
-## Test setup with 2 Astrum PCB's
-
-For this project you can configure a second Astrum PCB (with 025_AP_Grove_USART_sendchar) as transmitter. Use a Grove cross cable (cross white and yellow, cut the red wire and leave the black wire as is) between the USART ports of the transmitter and the receiver
-
-Astrum PCB1:USART -
-
-## Test setup with 1 Astrum PCB and a PC
-
-For this second test-setup, you'll need the following two cables
-
-- DIY Grove <=> RS232 Sub-D
-- USB <=> RS232 Sub-D female
-
-usart_send.py => PC:COMx => RS232-USB Dongle => Grove to RS232 Sub-D connector  
-=> Astrum PCB:USART => USB-C VCP => COMy => Serial Console PC
-
-COMx is the COM-port on the RS232-USB dongle and is used by the Python script to send characters  
-COMy is the COM-port on the USB-C VCP and is used by the Serial Consol application to show the reveived data
-
 # Configuration
 
 The Grove USART on the Astrum PC is based on RS232 levels (LOW is 12 V and HIGH is -12V).
