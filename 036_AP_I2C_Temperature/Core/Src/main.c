@@ -1,3 +1,8 @@
+/* USER CODE BEGIN PV */
+static const uint8_t TEMP_READ = 0x4C << 1;      // Use 8-bit address
+static const uint8_t TEMP_WRITE = TEMP_READ + 1; // Use 8-bit address
+/* USER CODE END PV */
+
 /* USER CODE BEGIN 0 */
 int _write(int file, char *ptr, int len)
 {
@@ -11,6 +16,7 @@ HAL_StatusTypeDef ret;
 uint8_t buf[2];
 /* USER CODE END 1 */
 
+/* USER CODE BEGIN WHILE */
 void ReadTemp()
 {
   buf[0] = 0x00; // register for reading temperature = 0x00
