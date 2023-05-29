@@ -1,6 +1,5 @@
 # STM32_AstrumPCBPublic
 
-Repro with \*.ioc files and needed USER CODE sections
 This repo is for Software Development students of the Astrum College, Velp, The Netherlands.
 
 Most projects contains a README.md, a CONFIGURATION.md and the USER CODE sections of the main.c source file.

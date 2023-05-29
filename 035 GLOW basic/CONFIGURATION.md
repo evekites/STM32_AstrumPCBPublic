@@ -3,13 +3,14 @@
 - PINOUT & CONFIGURATION
 
   - Set PB5 to GPIO_OUTPUT
+  - Set PA5 to GPIO_OUTPUT
   - Set PB4 to I2C3_SDA
   - Set PA6 to I2C3_SCL
   - Set PB3 to TIM2_CH2
-  - Set PE4 to GPIO_OUTPUT
   - Set PB1 to GPIO_EXTI1, set userlabel to IMU_INT2
   - Set PBO to GPIO_EXTI0, set userlabel to IMU_INT1
-  - Set PA5 to GPIO_OUTPUT
+  - Set PE4 to GPIO_OUTPUT
+
   - Set PA6 to GPIO_INPUT
   - Set PA2 to GPIO_OUTPUT
   - Set PA3 to GPIO_OUTPUT
