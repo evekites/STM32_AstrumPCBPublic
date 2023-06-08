@@ -6,12 +6,12 @@ import serial
 import string
 import time
 
-ser = serial.Serial("COM7", 115200, timeout=0.050)
+ser = serial.Serial("COM25", 115200, timeout=0.050)
 count = 0
 
 while 1:
     randomLetter = random.choice(string.ascii_letters)
-    randomInterval = random.randint(1, 12)
+    randomInterval = 1  # random.randint(1, 12)
     ser.write(bytearray(randomLetter, "ascii"))
     print(f"Char{count}: {randomLetter}")
     time.sleep(randomInterval)
