@@ -6,7 +6,7 @@ import serial
 import string
 import time
 
-ser = serial.Serial("COM25", 115200, timeout=0.050)
+ser = serial.Serial("COM28", 115200, timeout=0.050)
 count = 0
 
 while 1:

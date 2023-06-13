@@ -1,16 +1,15 @@
 /* USER CODE BEGIN WHILE */
-int x;
-for (x = 10; x < 128; x++)
+for (int iCounter = 0; iCounter < 5; iCounter++)
 {
-    __HAL_TIM_SET_AUTORELOAD(&htim1, x * 2);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, x);
-    HAL_Delay(30);
+    HAL_GPIO_WritePin(BUZZER_GROVE_GPIO_Port, BUZZER_GROVE_Pin, GPIO_PIN_SET);
+    HAL_Delay(25);
+    HAL_GPIO_WritePin(BUZZER_GROVE_GPIO_Port, BUZZER_GROVE_Pin, GPIO_PIN_RESET);
+    HAL_Delay(150);
 }
-__HAL_TIM_SET_AUTORELOAD(&htim1, 1 * 2);
-__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 1);
-
 while (1)
 {
-/* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-/* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
+}
+/* USER CODE END 3 */
