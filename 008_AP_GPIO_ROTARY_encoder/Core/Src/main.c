@@ -54,12 +54,12 @@ void Read_Rotary()
     if (clockState == 0b1011 || clockState == 0b1101 || clockState == 0b1110 || clockState == 0b1111)
     {
       readValue++; // clockwise
-      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
     }
     if (counterClockState == 0b1011 || counterClockState == 0b1101 || counterClockState == 0b1110 || counterClockState == 0b1111)
     {
       readValue--; // counterclockwise
-      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
     }
     clockState = 0;
     counterClockState = 0;
