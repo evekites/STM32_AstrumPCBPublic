@@ -83,6 +83,7 @@ HAL_TIM_Base_Start(&htim1);
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN WHILE */
+// x
 while (1)
 {
   if (DHT11_Start())

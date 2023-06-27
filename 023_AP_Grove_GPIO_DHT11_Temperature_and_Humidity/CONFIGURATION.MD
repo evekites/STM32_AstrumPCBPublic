@@ -1,5 +1,7 @@
 # Configuration
 
+x
+
 - A Grove Temperature and Humidity sensor is connected to GPIO01
 - PINOUT & CONFIGURATION
   - Set PB0 to GPIO_OUTPUT, userlabel to DHT11
