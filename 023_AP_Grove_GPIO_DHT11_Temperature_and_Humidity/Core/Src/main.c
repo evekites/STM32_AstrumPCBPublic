@@ -102,24 +102,6 @@ while (1)
       printf("Celsius: %f,  Humidity: %f\r\n", tCelsius, RH);
       // Can use tCelsius, tFahrenheit and RH for any purposes
     }
-    if (TCI < 15)
-    {
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 1);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 0);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 0);
-    }
-    else if (TCI < 25)
-    {
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 0);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 1);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 0);
-    }
-    else
-    {
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 0);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 0);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);
-    }
   }
   HAL_Delay(2000);
   /* USER CODE END WHILE */
