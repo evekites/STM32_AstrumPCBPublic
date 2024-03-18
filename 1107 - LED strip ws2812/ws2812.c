@@ -80,11 +80,11 @@ void ws2812_Send_PWM(void)
     {
       if (color & (1 << i))
       {
-        pwmData[indx] = 50; // 2/3 of ARR=75
+        pwmData[indx] = 53; // 2/3 of ARR=80
       }
 
       else
-        pwmData[indx] = 25; // 1/3 of ARR=75
+        pwmData[indx] = 27; // 1/3 of ARR=80
 
       indx++;
     }
