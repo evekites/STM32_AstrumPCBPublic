@@ -9,6 +9,8 @@ The projects in here are numbered 000-099 and 1000-1999 each with its own aproac
 - README 000-099.md
 - README 1000-1999.md
 
+Documentation for the "C-University development board v1" can be found in the folder "1000 - docs"
+
 ## STM32WB55RGV6
 
 | Component             | Chip                 | Datasheet                                                                                      |
