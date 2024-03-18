@@ -2,16 +2,12 @@
 
 This repo is for Software Development students of the Astrum College, Velp, The Netherlands.
 
-Most projects contains a README.md, a CONFIGURATION.md and the USER CODE sections of the main.c source file.
+All code in this repo is written for the "C-University development board" used for the Embedded Software lessons for 2nd year MBO Software Development students at the Astrum College in Velp The Netherlands. This STM32 development board was developed for the Astrum College by Gemini Embedded Technology / C-University.
 
-Usage:
+The projects in here are numbered 000-099 and 1000-1999 each with its own aproach, see the following readme's:
 
-- Create a new project and choose the STM32WB55RGV6 from the MCU list.
-- Implement the settings as described in the CONFIGURATION.md file
-- Insert al the USER CODE sections to their corresponding places in your own main.c fie
-- Copy all other files/folders to thier corresponding folders.
-
-All code is based on the Astrum PCB used fot the Embedded Software lessons for 2nd year students MBO Software Development. This STM32 development PCB was developed for the Astrum College by Gemini Embedded Technology.
+- README 000-099.md
+- README 1000-1999.md
 
 ## STM32WB55RGV6
 
