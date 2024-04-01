@@ -1,6 +1,6 @@
 /*! ***************************************************************************
  *
- * \brief     Example xxx
+ * \brief     Example OLED ssd1307
  * \file      example_main.c
  * \author    Erik Verberne
  * \date      March 2024
@@ -34,17 +34,23 @@
 #include "example_main.h"
 #include "main.h"
 
+#include "ssd1307.h"
 
 /* Private typedef -----------------------------------------------------------*/
 
 /* Private define ------------------------------------------------------------*/
 
+#define T_PIXEL_FILL_ANIMATION_ms 2000
+#define T_TEXT_SCROLL_ANIMATION_ms 3000
+
 /* Private macro -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
+uint32_t millis = 0;
 
 /* External variables --------------------------------------------------------*/
-// extern I2C_HandleTypeDef hi2c1;
+extern I2C_HandleTypeDef hi2c1;
+extern LPTIM_HandleTypeDef hlptim1;
 
 /* Private function prototypes -----------------------------------------------*/
 
@@ -52,7 +58,37 @@
 
 void example_main(void)
 {
+    // hal TIM START IT
+    // LPTIM1->ARR = LPTIM1_ARR;
+    HAL_LPTIM_Counter_Start_IT(&hlptim1, LPTIM1_ARR);
+
+    if (ssd1307_Init(&DISPLAY0, 0))
+        Error_Handler();
+    for (int i = 0; i < 4000000; i++)
+    {
+        __asm("nop");
+    }
+
     while (1)
     {
+        /*Test 'Console' function*/
+        SSD1307_animation_fill_square(&DISPLAY0, T_PIXEL_FILL_ANIMATION_ms,
+                                      White, SSD1307_WIDTH, SSD1307_HEIGHT);
+        SSD1307_animation_scroll_text(&DISPLAY0, "Hello Astrum", 5000, White,
+                                      SSD1307_HEIGHT / 2 - (Font_11x18.FontHeight / 2), Font_11x18);
+        SSD1307_animation_fill_square(&DISPLAY0, T_PIXEL_FILL_ANIMATION_ms,
+                                      White, SSD1307_WIDTH, SSD1307_HEIGHT);
+        SSD1307_animation_scroll_window(&DISPLAY0, "Hello Astrum", 1000, White,
+                                        SSD1307_HEIGHT / 2 - (Font_11x18.FontHeight / 2), Font_11x18);
+        SSD1307_animation_fill_square(&DISPLAY0, T_PIXEL_FILL_ANIMATION_ms,
+                                      White, SSD1307_WIDTH, SSD1307_HEIGHT);
+        SSD1307_println(&DISPLAY0, "auto line 1", White, Font_11x18);
+        HAL_Delay(500);
+        SSD1307_println(&DISPLAY0, "auto line 2", White, Font_7x10);
+        HAL_Delay(500);
+        SSD1307_println(&DISPLAY0, "auto line 3", White, Font_11x18);
+        HAL_Delay(500);
+        SSD1307_println(&DISPLAY0, "auto line 4", White, Font_7x10);
+        HAL_Delay(500);
     }
 }

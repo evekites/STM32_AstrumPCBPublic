@@ -1,6 +1,6 @@
 /*! ***************************************************************************
  *
- * \brief     Example xxx
+ * \brief     Example OLED ssd1307
  * \file      example_main.h
  * \author    Erik Verberne
  * \date      March 2024
@@ -44,6 +44,5 @@
 /* Exported variables --------------------------------------------------------*/
 
 /* Exported functions prototypes ---------------------------------------------*/
-void example_main(void);
 
 #endif /* EXAMPLE_MAIN_H_ */
