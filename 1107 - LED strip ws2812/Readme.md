@@ -1,6 +1,9 @@
 # Expected result
 
-- T
+- Red chaser, green chaser, blue chaser
+
+# ATTENTION
+At this point it is nog possible to use the onboard buzzer, because that components is connected to the same timer, but needs different parameters. Use an external buzzer instead. 
 
 # Project setup and configuration
 
@@ -8,7 +11,7 @@ You should make the following changes to the .ioc file:
 
 # Configuration
 
-A "Grove Neopixel (WS2812) LED strip" is connected to GPIO3
+A "Grove Neopixel (WS2812) LED strip" is connected to GPIO3 with 10 Neopixels
 
 - PINOUT & CONFIGURATION
   - Set PA10 to TIM1_CH3
@@ -19,7 +22,7 @@ A "Grove Neopixel (WS2812) LED strip" is connected to GPIO3
       - PARAMETER SETTINGS
         - PRESCALE (PSC - 16 BIT VALUE): 0
         - COUNTER MODE: UP
-        - COUNTER PERIOD (AUTO RELOAD REGISTER): 81-1
+        - COUNTER PERIOD (AUTO RELOAD REGISTER): 80-1
         - AUTO-RELOAD PRELOAD: DISABLE
 - SYSTEM CORE
   - DMA
