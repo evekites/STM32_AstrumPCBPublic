@@ -73,6 +73,7 @@ void ws2812_Send_PWM(void)
   uint16_t pwmData[24 * (WS2812_LED_MAX) + 50];
   uint32_t indx = 0;
   uint32_t color;
+  int ARR= htim1.Init.Period;
   for (int i = 0; i < WS2812_LED_MAX; i++)
   {
     color = ((LED_Data[i][1] << 16) | (LED_Data[i][2] << 8) | (LED_Data[i][3]));
@@ -80,11 +81,11 @@ void ws2812_Send_PWM(void)
     {
       if (color & (1 << i))
       {
-        pwmData[indx] = 53; // 2/3 of ARR=80
+        pwmData[indx] = 2*ARR/3; // 2/3 of ARR
       }
 
       else
-        pwmData[indx] = 27; // 1/3 of ARR=80
+        pwmData[indx] = ARR/3; // 1/3 of ARR
 
       indx++;
     }
